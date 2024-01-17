@@ -6,7 +6,7 @@ class InitialPage:
         # instância da página para todas as funções respectivas 
         self.page = page
         
-    def make_register(self, job='cargo', city='Bauru', is_effective='Sim'):
+    def make_register(self, job, city, is_effective) -> dict:
         """Descrição:
         ---------------
             `Executa o processo completo cadastro de resposta`
@@ -52,7 +52,7 @@ class InitialPage:
             error = traceback.format_exc()
             return {'error': True, 'type': 'Erro ao completar cadastro de resposta', 'data': error}
             
-    def go_to_site(self):
+    def go_to_site(self) -> dict:
         """Descrição:
         ---------------
             `Abre o site indicado`
@@ -66,7 +66,7 @@ class InitialPage:
             error = traceback.format_exc()
             return {'error': True, 'type': 'Site instável/indisponível', 'data': error}
         
-    def input_job(self, job='cargo'):
+    def input_job(self, job) -> dict:
         """Descrição:
         ---------------
             `Insere o cargo`
@@ -83,7 +83,7 @@ class InitialPage:
             error = traceback.format_exc()
             return {'error': True, 'type': 'Erro ao colocar cargo', 'data': error}
         
-    def select_job_effective(self, is_effective="Sim"):
+    def select_job_effective(self, is_effective) -> dict:
         """Descrição:
         ---------------
             `Seleciona a opção de efetividade do cargo`
@@ -101,10 +101,10 @@ class InitialPage:
             error = traceback.format_exc()
             return {'error': True, 'type': 'Erro ao selecionar efetividade do cargo', 'data': error}
         
-    def input_city(self, city='Bauru'):
+    def input_city(self, city) -> dict:
         """Descrição:
         ---------------
-            `Insere cidade`
+            `Insere a cidade`
         
         Argumentos:
         -----------
@@ -118,10 +118,10 @@ class InitialPage:
             error = traceback.format_exc()
             return {'error': True, 'type': 'Erro ao colocar cidade', 'data': error}
     
-    def send_answer_and_check(self):
+    def send_answer_and_check(self) -> dict:
         """Descrição:
         ---------------
-            `Envia resposta e faz a sua confirmação`
+            `Envia a resposta e faz a sua confirmação`
         """
         try:
             self.page.get_by_role("button", name="Enviar").click()

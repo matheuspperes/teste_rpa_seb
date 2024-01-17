@@ -6,7 +6,7 @@ class InitialPage:
         # instância da página para todas as funções respectivas 
         self.page = page
         
-    def extract_data(self):
+    def extract_data(self) -> dict:
         """Descrição:
         ---------------
             `Executa o processo completo de extração de dados`
@@ -36,7 +36,7 @@ class InitialPage:
             error = traceback.format_exc()
             return {'error': True, 'type': 'Erro ao extrair dados', 'data': error}
             
-    def go_to_site(self):
+    def go_to_site(self) -> dict:
         """Descrição:
         ---------------
             `Abre o site indicado`
@@ -64,14 +64,14 @@ class InitialPage:
         except:
             pass
         
-    def extract_jobs(self):
+    def extract_jobs(self) -> dict:
         """Descrição:
         ---------------
             `Manipula e extrai os dados de forma completa`
         
         Retorno:
         --------
-            {'error': bool, 'type': str, 'data': str|list}
+            ['data']: em caso de sucesso retornará uma lista
         """
         try:
             jobs_list = []

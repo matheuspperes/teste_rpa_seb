@@ -11,6 +11,14 @@ class Bot:
         pass
 
     def run(self, playwright: Playwright, import_id) -> None:
+        """Descrição:
+        -------------
+            `Função principal para execução completa do processo`
+
+        Argumentos:
+            - playwright (Playwright): objeto de navegação do playwright
+            - import_id (str): id da importação
+        """
         try:
             browser = playwright.chromium.launch(headless=False, args=["--start-maximized"])
             context = browser.new_context(no_viewport=True)
